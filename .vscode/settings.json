@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "*.mk": "makefile",
+        "*.vstemplate": "xml",
+        "cmath": "cpp"
+    }
+}

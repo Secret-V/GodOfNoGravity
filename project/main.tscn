@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Kratos.tscn" type="PackedScene" id=1]
+[ext_resource path="res://bin/AsteroidSpawner.gdns" type="Script" id=2]
+[ext_resource path="res://Asteroid.tscn" type="PackedScene" id=3]
+
+[node name="Spatial" type="Spatial"]
+
+[node name="Kratos" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 1, 0 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.115204, 0.439632 )
+
+[node name="AsteroidSpawner" type="Timer" parent="."]
+script = ExtResource( 2 )
+asteroidScene = ExtResource( 3 )
+[connection signal="intro_done" from="Kratos" to="AsteroidSpawner" method="_on_Kratos_intro_done"]
+[connection signal="timeout" from="AsteroidSpawner" to="AsteroidSpawner" method="_on_AsteroidSpawner_timeout"]
